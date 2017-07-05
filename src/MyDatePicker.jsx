@@ -2,16 +2,15 @@ import React from 'react';
 import { DatePicker } from 'antd';
 import './index.css';
 
-{/* MyDatePicker component utilizes the DatePicker provided by antd,
+/* MyDatePicker component utilizes the DatePicker provided by antd,
     only today - 2018.07.31 can be picked
-*/}
+*/
 class MyDatePicker extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             selectedDateString: ''
-            {/*selectedDateString stores the date value that the user selects*/}
-        }
+        };
     }
 
     render() {
@@ -27,14 +26,14 @@ class MyDatePicker extends React.Component {
         );
     }
 
-    {/*when date changes, this function will be called and reset the current state */}
+    /*when date changes, this function will be called and reset the current state */
     whenSelected(date, dateString) {
         this.setState({selectedDateString: dateString});
     }
 
-    {/*this function specifies the optional range */}
+    /*this function specifies the optional range */
     disabledDate(current) {
-        {/* calculateToDays function will get the number of days from 1970-01-01 */}
+        /* calculateToDays function will get the number of days from 1970-01-01 */
         var calculateToDays = function(dateNo) {
             const ONE_DAY = 24 * 60 * 60 * 1000;
             return Math.floor(dateNo / ONE_DAY);

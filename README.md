@@ -1,4 +1,4 @@
-#MyDatePicker Component
+# MyDatePicker Component
 ### Basics
 A new component called `MyDatePicker` for react is made based on [antd's DatePicker](https://ant.design/components/date-picker/). Days only between today and 2017-08-31 can be selected.
 
