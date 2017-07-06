@@ -19,7 +19,7 @@ class MyDatePicker extends React.Component {
             <div>
                 <DatePicker
                     format="YYYY-MM-DD"
-                    disabledDate={this.disabledDate}
+                    disabledDate={this.disabledDate.bind(this)}
                     onChange={this.whenSelected.bind(this)}/>
                 <span className="description">{prefix}{this.state.selectedDateString}</span>
             </div>
@@ -41,7 +41,12 @@ class MyDatePicker extends React.Component {
         if(current !== undefined) {
             var currentDate = calculateToDays(current.valueOf());
             var min = calculateToDays(Date.now());
-            var max = calculateToDays(new Date('2017-08-31').valueOf());
+            var max;
+            if(this.props.date !== undefined) {
+                max = calculateToDays(this.props.date.valueOf());
+            }else {
+                max = calculateToDays(new Date('2017-08-31').valueOf())
+            }
             return currentDate < min || currentDate > max;
         }
         return false;
